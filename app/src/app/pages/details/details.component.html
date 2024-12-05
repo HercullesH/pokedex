@@ -1,0 +1,90 @@
+<div class="container mt-4">
+
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Pokémon Details</h1>
+      
+      </div>
+  
+    <div *ngIf="pokemonDetails; else loading">
+      <h2 class="text-center"><b>{{ pokemonDetails.name | titlecase }}</b></h2>
+  
+      <div class="text-center">
+        <img [src]="pokemonDetails.sprites.front_default" alt="Default Sprite" class="img-thumbnail" />
+        <img [src]="pokemonDetails.sprites.other.home.front_default" alt="Home Sprite" class="img-thumbnail mt-2" />
+        
+      </div>
+  
+      <table class="table table-bordered mt-4">
+        <tbody>
+          <tr>
+            <th>ID</th>
+            <td>{{ pokemonDetails.id }}</td>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <td>{{ pokemonDetails.name | titlecase }}</td>
+          </tr>
+          <tr>
+            <th>Base Experience</th>
+            <td>{{ pokemonDetails.base_experience }}</td>
+          </tr>
+          <tr>
+            <th>Height</th>
+            <td>{{ pokemonDetails.height }}</td>
+          </tr>
+          <tr>
+            <th>Weight</th>
+            <td>{{ pokemonDetails.weight }}</td>
+          </tr>
+        </tbody>
+      </table>
+  
+      <h3>Abilities</h3>
+      <ul>
+        <li *ngFor="let ability of pokemonDetails.abilities">
+          {{ ability.ability.name | titlecase }} <span *ngIf="ability.is_hidden">(Hidden)</span>
+        </li>
+      </ul>
+  
+      <h3>Types</h3>
+      <ul>
+        <li *ngFor="let type of pokemonDetails.types">
+          {{ type.type.name | titlecase }}
+        </li>
+      </ul>
+  
+      <h3>Stats</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Stat</th>
+            <th>Base</th>
+            <th>Effort</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let stat of pokemonDetails.stats">
+            <td>{{ stat.stat.name | titlecase }}</td>
+            <td>{{ stat.base_stat }}</td>
+            <td>{{ stat.effort }}</td>
+          </tr>
+        </tbody>
+      </table>
+  
+      <h3>Moves</h3>
+      <ul>
+        <li *ngFor="let move of pokemonDetails.moves">
+          {{ move.move.name | titlecase }}
+        </li>
+      </ul>
+    </div>
+  
+    <ng-template #loading>
+      <div class="text-center">
+        <p>Loading Pokémon details...</p>
+      </div>
+    </ng-template>
+
+    <button class="btn btn-secondary mb-4" (click)="goBack()">Back</button>
+  </div>
+  

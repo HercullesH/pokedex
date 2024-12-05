@@ -1,31 +1,60 @@
+
 # Pokédex
 
-This repository is a template for a Pokédex application. It contains a server-side
-REST API built using [NestJS](https://nestjs.com) and a client-side single-page
-application built in [Angular](https://angular.dev).
+This repository is a template for a Pokédex application. It contains:
+- A server-side REST API built using [NestJS](https://nestjs.com).
+- A client-side single-page application (SPA) built using [Angular](https://angular.dev).
 
-## Prerequisites
-* [Node.js v20](https://nodejs.org/en)
 
 ## Setup
-1. Clone the repository.
-2. Install dependencies:
-    ```shell
-    cd /path/to/cloned/pokedex/
-    cd api/
-    npm install
-    cd ../app/
-    npm install
-    ```
 
-## Run
-In two separate shells, start the API and app:
+1. Clone the repository:
+   ```shell
+   git clone https://github.com/your-username/pokedex.git
+   cd pokedex
+   ```
+
+2. Install dependencies:
+   - For the API:
+     ```shell
+     cd api/
+     npm install
+     ```
+   - For the app:
+     ```shell
+     cd ../app/
+     npm install
+     ```
+
+---
+
+## Run the Project
+
+Start the API and the app in two separate shells:
+
+1. **Start the API**:
+   ```shell
+   cd api/
+   npm run start
+   ```
+   By default, the API will run at `http://localhost:3000`.
+
+2. **Start the App**:
+   ```shell
+   cd app/
+   npm run start
+   ```
+   By default, the app will run at `http://localhost:4200`.
+
+---
+
+## Tests
+
+### API Tests
+The API uses [Jest](https://jestjs.io/) for unit and integration testing.
+
+To run the tests:
 ```shell
 cd api/
-npm run start
+npm test
 ```
-```shell
-cd app/
-npm run start
-```
-Both the API and app will rebuild as changes are made to them.
